@@ -99,27 +99,27 @@ export const Header: React.FC = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <div className="relative flex items-end">
-              {/* Three wavy vertical bars in red - stylized W */}
+              {/* Three wavy vertical bars in red */}
               <svg
-                width="40"
-                height="28"
-                viewBox="0 0 40 28"
+                width="36"
+                height="32"
+                viewBox="0 0 36 32"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {/* Left bar - tallest, wavy curve */}
+                {/* Left bar - tallest, wavy ribbon */}
                 <path
-                  d="M2 4 C2.5 6, 3.5 10, 4 14 C4.2 16, 4 18, 4.5 22 C4.7 24, 5 26, 5.5 28 L7.5 28 C8 26, 8.2 24, 8 22 C7.8 18, 7.5 16, 8 14 C8.5 10, 9.5 6, 10 4 C9.5 2, 8.5 2, 6 2 C4.5 2, 3 2, 2 4 Z"
+                  d="M3 2 Q4 6, 4.5 10 Q5 14, 5.5 18 Q6 22, 6.5 26 Q7 30, 7.5 32 L9.5 32 Q9 30, 8.5 26 Q8 22, 7.5 18 Q7 14, 6.5 10 Q6 6, 5 2 Z"
                   fill="#DC2626"
                 />
-                {/* Middle bar - medium height, wavy curve */}
+                {/* Middle bar - medium height, wavy ribbon */}
                 <path
-                  d="M13 10 C13.5 12, 14.5 16, 15 20 C15.2 22, 15 24, 15.5 26 C15.7 27, 16 28, 16.5 28 L18.5 28 C19 27, 19.2 26, 19 24 C18.8 22, 18.5 20, 19 16 C19.5 12, 20.5 10, 21 10 C20.5 8, 19.5 8, 17 8 C15.5 8, 14 8, 13 10 Z"
+                  d="M13 8 Q14 12, 14.5 16 Q15 20, 15.5 24 Q16 28, 16.5 32 L18.5 32 Q18 28, 17.5 24 Q17 20, 16.5 16 Q16 12, 15 8 Z"
                   fill="#DC2626"
                 />
-                {/* Right bar - shortest, wavy curve */}
+                {/* Right bar - shortest, wavy ribbon */}
                 <path
-                  d="M24 16 C24.5 18, 25.5 22, 26 24 C26.2 25, 26 26, 26.5 28 L28.5 28 C29 26, 29.2 25, 29 24 C28.5 22, 28 20, 28.5 18 C29 16, 30 14, 30.5 14 C30 12, 29 12, 26.5 12 C25 12, 24 13, 24 16 Z"
+                  d="M23 14 Q24 18, 24.5 22 Q25 26, 25.5 30 Q26 32, 26.5 32 L28.5 32 Q28 30, 27.5 26 Q27 22, 26.5 18 Q26 14, 25 14 Z"
                   fill="#DC2626"
                 />
               </svg>
