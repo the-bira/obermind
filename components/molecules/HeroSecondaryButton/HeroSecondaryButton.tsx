@@ -17,21 +17,23 @@ export const HeroSecondaryButton: React.FC<HeroSecondaryButtonProps> = ({
     <Link
       href={href}
       className={`
-        inline-flex items-center justify-center gap-2
-        w-[200px] h-[53px]
+        group
+        inline-flex items-center justify-center gap-2 whitespace-nowrap
+        h-[53px]
         bg-transparent border-2 border-white text-white
         rounded-[55px]
         px-[34px] py-[14px]
         font-urbanist font-bold text-base
         transition-all duration-300 ease-in-out
-        hover:scale-105 active:scale-95 hover:bg-white hover:text-red-600
+        hover:px-[44px] hover:gap-3 hover:bg-white hover:text-red-600
+        active:px-[32px]
         focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-800
         ${className}
       `}
-      style={{ fontFamily: 'var(--font-urbanist)' }}
+      style={{ fontFamily: "var(--font-urbanist)" }}
     >
-      {label}
-      <ArrowRight className="w-5 h-5" />
+      <span>{label}</span>
+      <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </Link>
   );
 };

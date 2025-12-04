@@ -5,13 +5,13 @@ import { HeroPrimaryButton, HeroSecondaryButton } from "@/components/molecules";
 import { FinancialCard, type FinancialCardData } from "@/components/organisms";
 
 export interface HeroProps {
-  headline: string;
-  description: string;
-  primaryButton: {
+  headline?: string;
+  description?: string;
+  primaryButton?: {
     label: string;
     href: string;
   };
-  secondaryButton: {
+  secondaryButton?: {
     label: string;
     href: string;
   };

@@ -25,9 +25,10 @@ export const FinancialCard: React.FC<FinancialCardProps> = ({
     <div
       className={`
         flex flex-col items-center justify-center
+        w-[120px] h-[120px]
         rounded-full
         bg-white
-        p-6
+        p-4
         shadow-md
         hover:shadow-lg
         transition-shadow duration-300
