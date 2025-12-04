@@ -98,21 +98,30 @@ export const Header: React.FC = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="relative">
-              {/* Three ascending bars / M shape in red */}
+            <div className="relative flex items-end">
+              {/* Three wavy vertical bars in red - stylized W */}
               <svg
-                width="28"
+                width="40"
                 height="28"
-                viewBox="0 0 28 28"
+                viewBox="0 0 40 28"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {/* Left bar - tallest */}
-                <rect x="2" y="6" width="5" height="18" fill="#DC2626" rx="1" />
-                {/* Middle bar - medium height */}
-                <rect x="9" y="10" width="5" height="14" fill="#DC2626" rx="1" />
-                {/* Right bar - tallest */}
-                <rect x="16" y="6" width="5" height="18" fill="#DC2626" rx="1" />
+                {/* Left bar - tallest, wavy curve */}
+                <path
+                  d="M2 4 C2.5 6, 3.5 10, 4 14 C4.2 16, 4 18, 4.5 22 C4.7 24, 5 26, 5.5 28 L7.5 28 C8 26, 8.2 24, 8 22 C7.8 18, 7.5 16, 8 14 C8.5 10, 9.5 6, 10 4 C9.5 2, 8.5 2, 6 2 C4.5 2, 3 2, 2 4 Z"
+                  fill="#DC2626"
+                />
+                {/* Middle bar - medium height, wavy curve */}
+                <path
+                  d="M13 10 C13.5 12, 14.5 16, 15 20 C15.2 22, 15 24, 15.5 26 C15.7 27, 16 28, 16.5 28 L18.5 28 C19 27, 19.2 26, 19 24 C18.8 22, 18.5 20, 19 16 C19.5 12, 20.5 10, 21 10 C20.5 8, 19.5 8, 17 8 C15.5 8, 14 8, 13 10 Z"
+                  fill="#DC2626"
+                />
+                {/* Right bar - shortest, wavy curve */}
+                <path
+                  d="M24 16 C24.5 18, 25.5 22, 26 24 C26.2 25, 26 26, 26.5 28 L28.5 28 C29 26, 29.2 25, 29 24 C28.5 22, 28 20, 28.5 18 C29 16, 30 14, 30.5 14 C30 12, 29 12, 26.5 12 C25 12, 24 13, 24 16 Z"
+                  fill="#DC2626"
+                />
               </svg>
             </div>
             <div className="flex flex-col">
