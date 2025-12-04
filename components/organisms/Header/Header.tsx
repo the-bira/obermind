@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronDown, ArrowRight, Globe, User } from 'lucide-react';
 import { Button } from '@/components/atoms';
 
@@ -98,31 +99,15 @@ export const Header: React.FC = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="relative flex items-end">
-              {/* Three wavy vertical bars in red */}
-              <svg
-                width="36"
-                height="32"
-                viewBox="0 0 36 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* Left bar - tallest, wavy ribbon */}
-                <path
-                  d="M3 2 Q4 6, 4.5 10 Q5 14, 5.5 18 Q6 22, 6.5 26 Q7 30, 7.5 32 L9.5 32 Q9 30, 8.5 26 Q8 22, 7.5 18 Q7 14, 6.5 10 Q6 6, 5 2 Z"
-                  fill="#DC2626"
-                />
-                {/* Middle bar - medium height, wavy ribbon */}
-                <path
-                  d="M13 8 Q14 12, 14.5 16 Q15 20, 15.5 24 Q16 28, 16.5 32 L18.5 32 Q18 28, 17.5 24 Q17 20, 16.5 16 Q16 12, 15 8 Z"
-                  fill="#DC2626"
-                />
-                {/* Right bar - shortest, wavy ribbon */}
-                <path
-                  d="M23 14 Q24 18, 24.5 22 Q25 26, 25.5 30 Q26 32, 26.5 32 L28.5 32 Q28 30, 27.5 26 Q27 22, 26.5 18 Q26 14, 25 14 Z"
-                  fill="#DC2626"
-                />
-              </svg>
+            <div className="relative">
+              <Image
+                src="/Logo.png"
+                alt="Premier Markets Logo"
+                width={36}
+                height={32}
+                priority
+                className="object-contain"
+              />
             </div>
             <div className="flex flex-col">
               <span 
