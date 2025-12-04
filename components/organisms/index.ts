@@ -1,4 +1,5 @@
 export * from './CTASection';
+export * from "./FinancialCard";
 export * from './Footer';
 export * from './Header';
 export * from './Hero';
