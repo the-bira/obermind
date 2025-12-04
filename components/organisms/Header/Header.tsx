@@ -1,14 +1,56 @@
 'use client';
 
-import React, { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { ChevronDown, ArrowRight, Globe, User } from 'lucide-react';
-import { Button } from '@/components/atoms';
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { ChevronDown, ArrowRight, User } from "lucide-react";
+import { Button } from "@/components/atoms";
+import {
+  TabSelector,
+  TopBarLink,
+  LanguageSelector,
+  type Tab,
+} from "@/components/molecules";
 
-export const Header: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'personal' | 'institutional'>('personal');
+export interface TopBarLinkData {
+  href: string;
+  label: string;
+}
 
+export interface LanguageData {
+  countryCode: string;
+  language: string;
+}
+
+export interface HeaderProps {
+  tabs?: Tab[];
+  defaultTab?: string;
+  topBarLinks?: TopBarLinkData[];
+  language?: LanguageData;
+}
+
+const defaultTabs: Tab[] = [
+  { id: "personal", label: "Personal" },
+  { id: "institutional", label: "Institutional" },
+];
+
+const defaultTopBarLinks: TopBarLinkData[] = [
+  { href: "/webtrader", label: "WebTrader" },
+  { href: "/support", label: "Support" },
+  { href: "/demo", label: "Open Demo" },
+];
+
+const defaultLanguage: LanguageData = {
+  countryCode: "AE",
+  language: "EN",
+};
+
+export const Header: React.FC<HeaderProps> = ({
+  tabs = defaultTabs,
+  defaultTab = "personal",
+  topBarLinks = defaultTopBarLinks,
+  language = defaultLanguage,
+}) => {
   return (
     <header className="bg-white sticky top-0 z-50 shadow-sm">
       {/* Top Bar */}
@@ -16,79 +58,28 @@ export const Header: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             {/* Left Side - Personal/Institutional */}
-            <div className="flex items-center gap-6">
-              <button
-                onClick={() => setActiveTab('personal')}
-                className={`
-                  font-urbanist text-sm font-semibold leading-[19.98px] tracking-[-0.2px]
-                  transition-colors
-                  ${activeTab === 'personal' 
-                    ? 'text-red-600 border-b-2 border-red-600 pb-1' 
-                    : 'text-black hover:text-red-600'
-                  }
-                `}
-                style={{ fontFamily: 'var(--font-urbanist)' }}
-              >
-                Personal
-              </button>
-              <button
-                onClick={() => setActiveTab('institutional')}
-                className={`
-                  font-urbanist text-sm font-semibold leading-[19.98px] tracking-[-0.2px]
-                  transition-colors
-                  ${activeTab === 'institutional' 
-                    ? 'text-red-600 border-b-2 border-red-600 pb-1' 
-                    : 'text-black hover:text-red-600'
-                  }
-                `}
-                style={{ fontFamily: 'var(--font-urbanist)' }}
-              >
-                Institutional
-              </button>
-            </div>
+            <TabSelector tabs={tabs} defaultTab={defaultTab} />
 
             {/* Right Side - Links, Language */}
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-4">
-                <div className="h-4 w-px bg-gray-300"></div>
-                <Link
-                  href="/webtrader"
-                  className="font-urbanist text-sm font-semibold leading-[19.98px] tracking-[-0.2px] text-black hover:text-red-600 transition-colors"
-                  style={{ fontFamily: 'var(--font-urbanist)' }}
-                >
-                  WebTrader
-                </Link>
-                <div className="h-4 w-px bg-gray-300"></div>
-                <Link
-                  href="/support"
-                  className="font-urbanist text-sm font-semibold leading-[19.98px] tracking-[-0.2px] text-black hover:text-red-600 transition-colors"
-                  style={{ fontFamily: 'var(--font-urbanist)' }}
-                >
-                  Support
-                </Link>
-                <div className="h-4 w-px bg-gray-300"></div>
-                <Link
-                  href="/demo"
-                  className="font-urbanist text-sm font-semibold leading-[19.98px] tracking-[-0.2px] text-black hover:text-red-600 transition-colors"
-                  style={{ fontFamily: 'var(--font-urbanist)' }}
-                >
-                  Open Demo
-                </Link>
+                <div className="h-4 w-px bg-gray-300" />
+                {topBarLinks.map((link) => (
+                  <TopBarLink
+                    key={link.href}
+                    href={link.href}
+                    label={link.label}
+                    showDivider={true}
+                  />
+                ))}
               </div>
-              
+
               {/* Language Selector */}
-              <div className="flex items-center gap-2 ml-4">
-                <div className="w-5 h-5 rounded-sm bg-gradient-to-br from-green-600 to-green-700 flex items-center justify-center text-white text-[10px] font-bold">
-                  AE
-                </div>
-                <span 
-                  className="font-urbanist text-sm font-semibold leading-[19.98px] tracking-[-0.2px] text-black"
-                  style={{ fontFamily: 'var(--font-urbanist)' }}
-                >
-                  EN
-                </span>
-                <Globe className="w-4 h-4 text-gray-500" />
-              </div>
+              <LanguageSelector
+                countryCode={language.countryCode}
+                language={language.language}
+                className="ml-4"
+              />
             </div>
           </div>
         </div>
@@ -103,33 +94,11 @@ export const Header: React.FC = () => {
               <Image
                 src="/Logo.png"
                 alt="Premier Markets Logo"
-                width={36}
-                height={32}
+                width={104}
+                height={104}
                 priority
                 className="object-contain"
               />
-            </div>
-            <div className="flex flex-col">
-              <span 
-                className="text-black font-urbanist text-lg font-normal leading-none"
-                style={{ 
-                  fontFamily: 'var(--font-urbanist)',
-                  fontSize: '16px',
-                  lineHeight: '100%'
-                }}
-              >
-                premier
-              </span>
-              <span 
-                className="text-black font-urbanist text-lg font-normal leading-none"
-                style={{ 
-                  fontFamily: 'var(--font-urbanist)',
-                  fontSize: '16px',
-                  lineHeight: '100%'
-                }}
-              >
-                markets
-              </span>
             </div>
           </Link>
 
@@ -138,10 +107,10 @@ export const Header: React.FC = () => {
             <Link
               href="/trading"
               className="font-urbanist text-base font-normal text-black hover:text-red-600 transition-colors flex items-center gap-1"
-              style={{ 
-                fontFamily: 'var(--font-urbanist)',
-                fontSize: '16px',
-                lineHeight: '100%'
+              style={{
+                fontFamily: "var(--font-urbanist)",
+                fontSize: "16px",
+                lineHeight: "100%",
               }}
             >
               Trading
@@ -150,10 +119,10 @@ export const Header: React.FC = () => {
             <Link
               href="/discover"
               className="font-urbanist text-base font-normal text-black hover:text-red-600 transition-colors flex items-center gap-1"
-              style={{ 
-                fontFamily: 'var(--font-urbanist)',
-                fontSize: '16px',
-                lineHeight: '100%'
+              style={{
+                fontFamily: "var(--font-urbanist)",
+                fontSize: "16px",
+                lineHeight: "100%",
               }}
             >
               Discover
@@ -162,10 +131,10 @@ export const Header: React.FC = () => {
             <Link
               href="/promotions"
               className="font-urbanist text-base font-normal text-black hover:text-red-600 transition-colors flex items-center gap-1"
-              style={{ 
-                fontFamily: 'var(--font-urbanist)',
-                fontSize: '16px',
-                lineHeight: '100%'
+              style={{
+                fontFamily: "var(--font-urbanist)",
+                fontSize: "16px",
+                lineHeight: "100%",
               }}
             >
               Promotions
@@ -174,10 +143,10 @@ export const Header: React.FC = () => {
             <Link
               href="/company"
               className="font-urbanist text-base font-normal text-black hover:text-red-600 transition-colors flex items-center gap-1"
-              style={{ 
-                fontFamily: 'var(--font-urbanist)',
-                fontSize: '16px',
-                lineHeight: '100%'
+              style={{
+                fontFamily: "var(--font-urbanist)",
+                fontSize: "16px",
+                lineHeight: "100%",
               }}
             >
               Company
@@ -186,10 +155,10 @@ export const Header: React.FC = () => {
             <Link
               href="/partner"
               className="font-urbanist text-base font-normal text-red-600 hover:text-red-700 transition-colors flex items-center gap-1"
-              style={{ 
-                fontFamily: 'var(--font-urbanist)',
-                fontSize: '16px',
-                lineHeight: '100%'
+              style={{
+                fontFamily: "var(--font-urbanist)",
+                fontSize: "16px",
+                lineHeight: "100%",
               }}
             >
               Partner with us
@@ -202,7 +171,7 @@ export const Header: React.FC = () => {
             <Button variant="primary" size="md" className="hidden lg:block">
               Register
             </Button>
-            
+
             {/* Two circular icons */}
             <div className="flex items-center gap-2">
               <button className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center hover:bg-red-200 transition-colors">
