@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Typography, Icon } from '@/components/atoms';
+import { Card, Typography } from '@/components/atoms';
 
 const features = [
   {

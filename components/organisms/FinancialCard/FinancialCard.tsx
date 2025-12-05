@@ -24,8 +24,9 @@ export const FinancialCard: React.FC<FinancialCardProps> = ({
   return (
     <div
       className={`
-        flex flex-col items-center justify-center
-        w-[120px] h-[120px]
+        flex items-center
+        w-fit h-fit
+        gap-4
         rounded-full
         bg-white
         p-4
@@ -50,10 +51,10 @@ export const FinancialCard: React.FC<FinancialCardProps> = ({
       <p
         className="mb-2 font-bold text-sm leading-none"
         style={{
-          fontFamily: 'var(--font-inter), sans-serif',
-          fontSize: '14px',
-          lineHeight: '100%',
-          letterSpacing: '0%',
+          fontFamily: "var(--font-inter), sans-serif",
+          fontSize: "14px",
+          lineHeight: "100%",
+          letterSpacing: "0%",
           fontWeight: 700,
         }}
       >
@@ -64,37 +65,37 @@ export const FinancialCard: React.FC<FinancialCardProps> = ({
       <div className="mb-2">
         <Image
           src={graphIcon}
-          alt={data.trend === 'up' ? 'Trending up' : 'Trending down'}
+          alt={data.trend === "up" ? "Trending up" : "Trending down"}
           width={39}
           height={18}
           className="object-contain"
         />
       </div>
+      <div className="flex flex-col">
+        {/* Value */}
+        <p
+          className="mb-1 font-bold text-xs text-gray-800"
+          style={{
+            fontFamily: "var(--font-inter), sans-serif",
+            fontWeight: 700,
+          }}
+        >
+          {data.value}
+        </p>
 
-      {/* Value */}
-      <p
-        className="mb-1 font-bold text-xs text-gray-800"
-        style={{
-          fontFamily: 'var(--font-inter), sans-serif',
-          fontWeight: 700,
-        }}
-      >
-        {data.value}
-      </p>
-
-      {/* Change */}
-      <p
-        className={`font-bold text-xs ${changeColor}`}
-        style={{
-          fontFamily: 'var(--font-inter), sans-serif',
-          fontSize: '14px',
-          lineHeight: '100%',
-          letterSpacing: '0%',
-          fontWeight: 700,
-        }}
-      >
-        {data.change}
-      </p>
+        {/* Change */}
+        <p
+          className={`font-bold text-xs ${changeColor}`}
+          style={{
+            fontFamily: "var(--font-inter), sans-serif",
+            lineHeight: "100%",
+            letterSpacing: "0%",
+            fontWeight: 700,
+          }}
+        >
+          {data.change}
+        </p>
+      </div>
     </div>
   );
 };

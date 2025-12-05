@@ -25,9 +25,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-urbanist: var(--font-urbanist);
-  --font-inter: var(--font-inter);
-  --font-sans: var(--font-urbanist);
+  --font-sans: 'Urbanist', Arial, Helvetica, sans-serif;
   
   /* Premier Markets Colors */
   --color-primary: var(--color-primary);

@@ -21,7 +21,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
             variant="body"
             className="text-gray-700 italic text-sm leading-relaxed"
           >
-            "{quote}"
+            &ldquo;{quote}&rdquo;
           </Typography>
         </div>
         <div className="flex items-center justify-between pt-4 border-t border-gray-200">

@@ -114,8 +114,13 @@ export const Hero: React.FC<HeroProps> = ({
       </div>
 
       {/* White Section with Financial Cards */}
-      <div className="bg-white py-8">
-        <div className="container mx-auto px-4">
+      <div
+        className="bg-white  w-full h-[180px] py-8 absolute bottom-0 left-0"
+        style={{
+          clipPath: "ellipse(95% 180px at 60% 100%)",
+        }}
+      >
+        <div className="container mx-auto px-4 py-6">
           <div className="flex flex-wrap justify-center gap-6">
             {financialCards.map((card, index) => (
               <FinancialCard key={index} data={card} />

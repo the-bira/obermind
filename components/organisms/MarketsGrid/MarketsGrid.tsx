@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button, Card, Typography } from '@/components/atoms';
+import { Card, Typography } from '@/components/atoms';
 import { PriceDisplay } from '@/components/molecules';
 
 const marketFilters = [

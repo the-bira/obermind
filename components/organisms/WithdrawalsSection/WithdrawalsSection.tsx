@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Icon } from '@/components/atoms';
+import { Typography } from '@/components/atoms';
 
 const benefits = [
   {
