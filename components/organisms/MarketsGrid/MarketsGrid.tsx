@@ -116,26 +116,30 @@ export const MarketsGrid: React.FC = () => {
           </div>
 
           {/* Selected Market Detail */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 space-y-6">
+            {/* Gold Banner */}
+            <div className="relative rounded-lg overflow-hidden">
+              <Image
+                src="/gold-banner.png"
+                alt="Gold Trading"
+                width={800}
+                height={300}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+
+            {/* Chart */}
             <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-              <div className="mb-6">
+              <div className="mb-4">
                 <Typography
                   as="h3"
                   variant="heading"
-                  className="text-black text-2xl font-bold mb-2"
+                  className="text-black text-xl font-bold mb-1"
                 >
-                  {marketItems[selectedMarket]?.name}
-                </Typography>
-                <Typography
-                  as="p"
-                  variant="body"
-                  className="text-gray-600 text-sm"
-                >
-                  {marketItems[selectedMarket]?.symbol}
+                  XAU/USD
                 </Typography>
               </div>
               
-              {/* Chart */}
               <div className="relative mb-4">
                 <Image
                   src="/our-markets-chart.png"
