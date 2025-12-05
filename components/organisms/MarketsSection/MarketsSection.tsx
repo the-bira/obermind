@@ -5,49 +5,31 @@ import { MarketCard, MarketsFeatureButton } from "@/components/molecules";
 const markets = [
   {
     title: "Forex",
-    description: "Trade the largest financial market in the world.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z" />
-      </svg>
-    ),
+    description:
+      "Trade the world's largest financial market. Access deep liquidity, tight spreads, and constant opportunity across major and minor currency pairs.",
+    iconSrc: "/market-card-forex.png",
+    iconAlt: "Forex",
   },
   {
     title: "Stocks",
-    description: "Trade shares of leading global companies.",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        className="w-8 h-8"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-        />
-      </svg>
-    ),
+    description:
+      "From Wall Street to global tech leaders, follow the world's leading companies and react to market moves in real time.",
+    iconSrc: "/market-card-stocks.png",
+    iconAlt: "Stocks",
   },
   {
     title: "Indices",
-    description: "Trade the performance of entire economies.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-        <path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2.03 0v8.99H22c-.47-4.74-4.24-8.52-8.97-8.99zm0 11.01V22c4.74-.47 8.5-4.25 8.97-8.99h-8.97z" />
-      </svg>
-    ),
+    description:
+      "Trade major global indices with deep liquidity, precise execution, and competitive spreads across key markets.",
+    iconSrc: "/market-card-indices.png",
+    iconAlt: "Indices",
   },
   {
     title: "Commodities",
-    description: "Trade precious metals, energies, and agricultural products.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-      </svg>
-    ),
+    description:
+      "Tap into global demand and supply trends by trading essential resources such as oil, gas, and agricultural products.",
+    iconSrc: "/market-card-commodities.png",
+    iconAlt: "Commodities",
   },
 ];
 
@@ -111,7 +93,8 @@ export const MarketsSection: React.FC = () => {
               key={market.title}
               title={market.title}
               description={market.description}
-              icon={market.icon}
+              iconSrc={market.iconSrc}
+              iconAlt={market.iconAlt}
             />
           ))}
         </div>
