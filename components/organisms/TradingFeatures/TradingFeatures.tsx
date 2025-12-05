@@ -62,7 +62,7 @@ export const TradingFeatures: React.FC = () => {
           <Typography
             as="p"
             variant="body"
-            className="text-gray-100 text-lg max-w-2xl mx-auto"
+            className="text-slate-400 text-lg max-w-2xl mx-auto"
           >
             Unlock advanced tools, insights, and support to maximise your
             trading potential.
@@ -89,9 +89,7 @@ export const TradingFeatures: React.FC = () => {
               <div
                 key={index}
                 className="
-                  bg-black
-                  border border-gray-700
-                  rounded-lg
+                  bg-transparent
                   p-6
                   relative
                   overflow-hidden
@@ -99,15 +97,33 @@ export const TradingFeatures: React.FC = () => {
                   group
                   hover:border-red-600
                 "
-                style={{
-                  background: "#000000",
-                }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background =
-                    "radial-gradient(circle at 50% 50%, rgba(226, 0, 9, 0.41) 0%, #000000 100%)";
+                  // Gradiente parte do centro (logo) em direção ao canto oposto de cada card
+                  // Index 0: top-left -> do centro para inferior direito (135deg)
+                  // Index 1: top-right -> do centro para inferior esquerdo (225deg)
+                  // Index 2: bottom-left -> do centro para superior direito (45deg)
+                  // Index 3: bottom-right -> do centro para superior esquerdo (315deg)
+                  // Usando gradiente linear que parte do centro e vai para o canto
+                  const gradientAngles = [
+                    "135deg", // Charting tools: centro para inferior direito
+                    "225deg", // Get flexible leverage: centro para inferior esquerdo
+                    "45deg", // Round-the-clock support: centro para superior direito
+                    "315deg", // Customisable price alerts: centro para superior esquerdo
+                  ];
+                  // Criar gradiente radial que parte do centro (50% 50%) e se estende na direção do canto
+                  // Usando ellipse alongada na direção diagonal para criar efeito direcional
+                  // Para criar direção do centro para o canto, usamos ellipse alongada
+                  // A elipse é alongada na direção diagonal do canto oposto
+                  const ellipseConfigs = [
+                    "ellipse 250% 180% at 50% 50%", // Charting tools: centro para inferior direito
+                    "ellipse 250% 180% at 50% 50%", // Get flexible leverage: centro para inferior esquerdo
+                    "ellipse 250% 180% at 50% 50%", // Round-the-clock support: centro para superior direito
+                    "ellipse 250% 180% at 50% 50%", // Customisable price alerts: centro para superior esquerdo
+                  ];
+                  e.currentTarget.style.background = `radial-gradient(${ellipseConfigs[index]}, rgba(226, 0, 9, 0.41) 0%, #1F2937 100%)`;
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#000000";
+                  e.currentTarget.style.background = "#1F2937"; // bg-gray-700
                 }}
               >
                 {feature.iconSrc && (
