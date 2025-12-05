@@ -1,8 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Obermind
 
-## Getting Started
+Project developed with Next.js 16, React 19, and TypeScript, following Atomic Design principles for component organization.
 
-First, run the development server:
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ installed
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd obermind
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+### Run Development Server
+
+To start the development server:
 
 ```bash
 npm run dev
@@ -10,27 +36,112 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run build` - Creates a production build
+- `npm run start` - Starts the production server (after build)
+- `npm run lint` - Runs ESLint linter
+- `npm run commitlint` - Validates commit messages
 
-## Learn More
+## 🏗️ Architecture
 
-To learn more about Next.js, take a look at the following resources:
+This project adopts the **Atomic Design Architecture**, a methodology that organizes components in a clear and scalable hierarchy, facilitating code maintenance and reusability.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Component Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+components/
+├── atoms/          # Basic and indivisible components
+├── molecules/      # Combinations of atoms
+├── organisms/      # Complex components formed by molecules and atoms
+└── templates/      # Page templates that combine organisms
+```
 
-## Deploy on Vercel
+#### Atoms
+Fundamental and indivisible components, the smallest building blocks of the interface:
+- `Button` - Basic button
+- `Card` - Card container
+- `Icon` - Icon
+- `Input` - Input field
+- `Typography` - Text components
+- `TimeRangeButton` - Time range button
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Molecules
+Simple combinations of atoms that form functional components:
+- `HeroPrimaryButton` / `HeroSecondaryButton` - Hero buttons
+- `BuyersSellers` - Buyers/sellers component
+- `LanguageSelector` - Language selector
+- `MarketCard` / `MarketListItem` - Market cards and items
+- `NavigationItem` - Navigation item
+- `PriceDisplay` - Price display
+- `StepCard` - Step card
+- `TabSelector` - Tab selector
+- `TestimonialCard` - Testimonial card
+- `TopBarLink` - Top bar link
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Organisms
+Complex components that form complete sections of the interface:
+- `Header` - Page header
+- `Footer` - Footer
+- `Hero` - Hero section
+- `MarketsSection` - Markets section
+- `MarketsGrid` - Markets grid
+- `TradingFeatures` - Trading features
+- `TrustSection` - Trust section
+- `WithdrawalsSection` - Withdrawals section
+- `NewsSection` - News section
+- `TestimonialsGrid` - Testimonials grid
+- `CTASection` - Call-to-action section
+- `FinancialCard` - Financial card
+
+#### Templates
+Page templates that combine multiple organisms:
+- `LandingPageTemplate` - Landing page template
+
+### Project Folder Structure
+
+```
+obermind/
+├── app/                    # Next.js App Router
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   └── globals.css        # Global styles
+├── components/            # Components organized by Atomic Design
+│   ├── atoms/
+│   ├── molecules/
+│   ├── organisms/
+│   └── templates/
+├── public/                # Static files (images, icons)
+├── next.config.ts         # Next.js configuration
+├── tsconfig.json          # TypeScript configuration
+├── package.json           # Dependencies and scripts
+└── README.md             # This file
+```
+
+### Technologies Used
+
+- **Next.js 16** - React framework with App Router
+- **React 19** - UI library
+- **TypeScript** - Static typing
+- **Tailwind CSS 4** - Utility-first styling framework
+- **Lucide React** - Icon library
+- **ESLint** - Code quality linter
+- **Husky** - Git hooks
+- **Commitlint** - Commit message validation
+
+### Standards and Conventions
+
+- **Path Aliases**: The project uses `@/*` for absolute imports (configured in `tsconfig.json`)
+- **Component Export**: Each component has an `index.ts` file to facilitate imports
+- **TypeScript**: All code is typed with TypeScript
+- **Conventional Commits**: The project uses Commitlint to ensure standardized commit messages
+
+## 📝 Notes
+
+- The project uses Google Fonts (Urbanist and Inter) optimized by Next.js
+- Images are located in the `public/` folder
+- Global styles are defined in `app/globals.css`
