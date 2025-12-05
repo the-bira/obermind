@@ -145,3 +145,31 @@ obermind/
 - The project uses Google Fonts (Urbanist and Inter) optimized by Next.js
 - Images are located in the `public/` folder
 - Global styles are defined in `app/globals.css`
+
+## 🚀 Future Improvements
+
+If I had more time, here are the frontend improvements I would implement to enhance the project:
+
+
+### Testing & Quality Assurance
+- **Unit Tests**: Add unit tests using Jest and React Testing Library for critical components
+- **Visual Regression**: Set up visual regression testing with tools like Chromatic or Percy
+- **Test Coverage**: Aim for at least 80% code coverage on critical paths
+
+### User Experience
+- **Animations**: Add smooth page transitions and micro-interactions using Framer Motion
+- **Loading States**: Add skeleton loaders and loading states for async operations
+- **Fallback UI**: Create fallback components for failed image loads
+- **Mobile Optimization**: Further optimize touch targets and mobile interactions
+
+### Internationalization (i18n)
+- **Multi-language Support**: Implement full i18n using next-intl or react-i18next
+- **RTL Support**: Add right-to-left language support for Arabic and Hebrew
+- **Locale Detection**: Implement automatic locale detection based on user's browser/region
+
+### Developer Experience
+- **Storybook**: Create Storybook documentation for all components with interactive examples
+- **Component Documentation**: Add JSDoc comments to all components and functions
+
+### Advanced Features
+- **Dark Mode**: Implement dark mode toggle with system preference detection
