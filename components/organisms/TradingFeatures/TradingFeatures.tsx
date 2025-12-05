@@ -39,8 +39,8 @@ export const TradingFeatures: React.FC = () => {
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: `
-            linear-gradient(to right, #6B7280 1px, transparent 1px),
-            linear-gradient(to bottom, #6B7280 1px, transparent 1px)
+            linear-gradient(to right, #444446 1px, transparent 1px),
+            linear-gradient(to bottom, #444446 1px, transparent 1px)
           `,
           backgroundSize: "32px 32px",
           WebkitMaskImage:
@@ -98,32 +98,22 @@ export const TradingFeatures: React.FC = () => {
                   hover:border-red-600
                 "
                 onMouseEnter={(e) => {
-                  // Gradiente parte do centro (logo) em direção ao canto oposto de cada card
-                  // Index 0: top-left -> do centro para inferior direito (135deg)
-                  // Index 1: top-right -> do centro para inferior esquerdo (225deg)
-                  // Index 2: bottom-left -> do centro para superior direito (45deg)
-                  // Index 3: bottom-right -> do centro para superior esquerdo (315deg)
-                  // Usando gradiente linear que parte do centro e vai para o canto
+                  // Gradientes lineares que partem do centro e vão na diagonal oposta
+                  // Index 0: Charting tools - do canto inferior direito para superior esquerdo (135deg)
+                  // Index 1: Get flexible leverage - do canto inferior esquerdo para superior direito (45deg)
+                  // Index 2: Round-the-clock - do superior direito para inferior esquerdo (225deg)
+                  // Index 3: Customisable price - do superior esquerdo para inferior direito (315deg)
                   const gradientAngles = [
-                    "135deg", // Charting tools: centro para inferior direito
-                    "225deg", // Get flexible leverage: centro para inferior esquerdo
-                    "45deg", // Round-the-clock support: centro para superior direito
-                    "315deg", // Customisable price alerts: centro para superior esquerdo
+                    "135deg", // Charting tools: inferior direito -> superior esquerdo
+                    "45deg", // Get flexible leverage: inferior esquerdo -> superior direito
+                    "225deg", // Round-the-clock: superior direito -> inferior esquerdo
+                    "315deg", // Customisable price: superior esquerdo -> inferior direito
                   ];
-                  // Criar gradiente radial que parte do centro (50% 50%) e se estende na direção do canto
-                  // Usando ellipse alongada na direção diagonal para criar efeito direcional
-                  // Para criar direção do centro para o canto, usamos ellipse alongada
-                  // A elipse é alongada na direção diagonal do canto oposto
-                  const ellipseConfigs = [
-                    "ellipse 250% 180% at 50% 50%", // Charting tools: centro para inferior direito
-                    "ellipse 250% 180% at 50% 50%", // Get flexible leverage: centro para inferior esquerdo
-                    "ellipse 250% 180% at 50% 50%", // Round-the-clock support: centro para superior direito
-                    "ellipse 250% 180% at 50% 50%", // Customisable price alerts: centro para superior esquerdo
-                  ];
-                  e.currentTarget.style.background = `radial-gradient(${ellipseConfigs[index]}, rgba(226, 0, 9, 0.41) 0%, #1F2937 100%)`;
+                  // Gradiente linear que parte do centro (50% stop) e vai na direção especificada
+                  e.currentTarget.style.background = `linear-gradient(${gradientAngles[index]}, transparent 0%, transparent 40%, rgba(226, 0, 9, 0.41) 50%, #1F2937 100%)`;
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = "#1F2937"; // bg-gray-700
+                  e.currentTarget.style.background = "transparent"; // bg-gray-700
                 }}
               >
                 {feature.iconSrc && (
@@ -149,7 +139,7 @@ export const TradingFeatures: React.FC = () => {
                 <Typography
                   as="p"
                   variant="body"
-                  className="text-gray-400 text-sm relative z-10"
+                  className="text-slate-300 text-sm relative z-10"
                 >
                   {feature.description}
                 </Typography>
