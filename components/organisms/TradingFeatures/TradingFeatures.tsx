@@ -39,14 +39,14 @@ export const TradingFeatures: React.FC = () => {
         className="absolute inset-0 z-0"
         style={{
           backgroundImage: `
-            linear-gradient(to right, #d1d5db 1px, transparent 1px),
-            linear-gradient(to bottom, #d1d5db 1px, transparent 1px)
+            linear-gradient(to right, #6B7280 1px, transparent 1px),
+            linear-gradient(to bottom, #6B7280 1px, transparent 1px)
           `,
-          backgroundSize: '32px 32px',
+          backgroundSize: "32px 32px",
           WebkitMaskImage:
-            'radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 70%)',
+            "radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 70%)",
           maskImage:
-            'radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 70%)',
+            "radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 70%)",
         }}
       />
 
@@ -62,16 +62,17 @@ export const TradingFeatures: React.FC = () => {
           <Typography
             as="p"
             variant="body"
-            className="text-gray-400 text-lg max-w-2xl mx-auto"
+            className="text-gray-100 text-lg max-w-2xl mx-auto"
           >
-            Unlock advanced tools, insights, and support to maximise your trading potential.
+            Unlock advanced tools, insights, and support to maximise your
+            trading potential.
           </Typography>
         </div>
 
         <div className="relative max-w-4xl mx-auto">
           {/* Logo in center */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-            <div className="relative w-24 h-24">
+            <div className="relative w-16 h-16">
               <Image
                 src="/logo-radar.png"
                 alt="Radar Logo"
@@ -83,7 +84,7 @@ export const TradingFeatures: React.FC = () => {
           </div>
 
           {/* Cards Grid 2x2 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 relative z-10">
             {features.map((feature, index) => (
               <div
                 key={index}
@@ -99,14 +100,14 @@ export const TradingFeatures: React.FC = () => {
                   hover:border-red-600
                 "
                 style={{
-                  background: '#000000',
+                  background: "#000000",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background =
-                    'radial-gradient(100% 100% at 100% 100%, rgba(226, 0, 9, 0.41) 0%, rgba(3, 0, 20, 0) 100%)';
+                    "radial-gradient(circle at 50% 50%, rgba(226, 0, 9, 0.41) 0%, #000000 100%)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.background = '#000000';
+                  e.currentTarget.style.background = "#000000";
                 }}
               >
                 {feature.iconSrc && (
@@ -144,11 +145,7 @@ export const TradingFeatures: React.FC = () => {
         {/* Play button in center */}
         <div className="flex justify-center mt-12 relative z-10">
           <button className="w-16 h-16 rounded-full bg-red-600 hover:bg-red-700 flex items-center justify-center transition-colors">
-            <svg
-              viewBox="0 0 24 24"
-              fill="white"
-              className="w-8 h-8 ml-1"
-            >
+            <svg viewBox="0 0 24 24" fill="white" className="w-8 h-8 ml-1">
               <path d="M8 5v14l11-7z" />
             </svg>
           </button>
