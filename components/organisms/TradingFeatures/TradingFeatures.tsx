@@ -1,45 +1,56 @@
+'use client';
+
 import React from 'react';
-import { Card, Typography } from '@/components/atoms';
+import Image from 'next/image';
+import { Typography } from '@/components/atoms';
 
 const features = [
   {
-    title: 'Creating goals and indicators',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-      </svg>
-    ),
+    title: 'Charting tools and indicators',
+    description:
+      'Sharpen your analysis with an array of intuitive charts, drawing tools and 100+ indicators.',
+    iconSrc: '', // Will be provided later
   },
   {
     title: 'Get flexible leverage',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-        <path d="M7 14l5-5 5 5z" />
-      </svg>
-    ),
+    description:
+      'Trade larger positions and maximise your return potential with lower margin requirements.',
+    iconSrc: '', // Will be provided later
   },
   {
     title: 'Round-the-clock support',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-      </svg>
-    ),
+    description:
+      'Our dedicated experts are available 24/5 to guide and assist you at every step.',
+    iconSrc: '', // Will be provided later
   },
   {
-    title: 'Customizable price alerts',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-        <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
-      </svg>
-    ),
+    title: 'Customisable price alerts',
+    description:
+      'Set real-time alerts to track asset movements and stay ahead with your strategy.',
+    iconSrc: '', // Will be provided later
   },
 ];
 
 export const TradingFeatures: React.FC = () => {
   return (
-    <section className="bg-gradient-to-b from-gray-900 to-black text-white py-20">
-      <div className="container mx-auto px-4">
+    <section className="min-h-screen w-full bg-gradient-to-b from-gray-900 to-black text-white py-20 relative">
+      {/* Diagonal Fade Center Grid Background */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #d1d5db 1px, transparent 1px),
+            linear-gradient(to bottom, #d1d5db 1px, transparent 1px)
+          `,
+          backgroundSize: '32px 32px',
+          WebkitMaskImage:
+            'radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 70%)',
+          maskImage:
+            'radial-gradient(ellipse 60% 60% at 50% 50%, #000 30%, transparent 70%)',
+        }}
+      />
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12 space-y-4">
           <Typography
             as="h2"
@@ -53,32 +64,85 @@ export const TradingFeatures: React.FC = () => {
             variant="body"
             className="text-gray-400 text-lg max-w-2xl mx-auto"
           >
-            Access powerful tools and features designed to enhance your trading
-            experience.
+            Unlock advanced tools, insights, and support to maximise your trading potential.
           </Typography>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {features.map((feature, index) => (
-            <Card
-              key={index}
-              variant="default"
-              className="bg-gray-800 border border-gray-700 hover:border-red-600 transition-colors p-6"
-            >
-              <div className="text-red-600 mb-4">{feature.icon}</div>
-              <Typography
-                as="h3"
-                variant="heading"
-                className="text-white text-lg font-bold"
+        <div className="relative max-w-4xl mx-auto">
+          {/* Logo in center */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+            <div className="relative w-24 h-24">
+              <Image
+                src="/logo-radar.png"
+                alt="Radar Logo"
+                fill
+                className="object-contain"
+                unoptimized
+              />
+            </div>
+          </div>
+
+          {/* Cards Grid 2x2 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="
+                  bg-black
+                  border border-gray-700
+                  rounded-lg
+                  p-6
+                  relative
+                  overflow-hidden
+                  transition-all duration-300
+                  group
+                  hover:border-red-600
+                "
+                style={{
+                  background: '#000000',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background =
+                    'radial-gradient(100% 100% at 100% 100%, rgba(226, 0, 9, 0.41) 0%, rgba(3, 0, 20, 0) 100%)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = '#000000';
+                }}
               >
-                {feature.title}
-              </Typography>
-            </Card>
-          ))}
+                {feature.iconSrc && (
+                  <div className="text-red-600 mb-4 relative z-10">
+                    <div className="relative w-12 h-12">
+                      <Image
+                        src={feature.iconSrc}
+                        alt={feature.title}
+                        fill
+                        className="object-contain"
+                        unoptimized
+                      />
+                    </div>
+                  </div>
+                )}
+                <Typography
+                  as="h3"
+                  variant="heading"
+                  className="text-white text-lg font-bold mb-2 relative z-10"
+                >
+                  {feature.title}
+                </Typography>
+                <Typography
+                  as="p"
+                  variant="body"
+                  className="text-gray-400 text-sm relative z-10"
+                >
+                  {feature.description}
+                </Typography>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Play button in center */}
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-12 relative z-10">
           <button className="w-16 h-16 rounded-full bg-red-600 hover:bg-red-700 flex items-center justify-center transition-colors">
             <svg
               viewBox="0 0 24 24"

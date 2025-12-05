@@ -1,5 +1,4 @@
 import React from 'react';
-import { Typography } from '@/components/atoms';
 
 export interface BuyersSellersProps {
   buyersPercent: string;

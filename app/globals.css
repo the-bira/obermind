@@ -50,3 +50,12 @@ body {
   color: var(--foreground);
   font-family: var(--font-urbanist), Arial, Helvetica, sans-serif;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
