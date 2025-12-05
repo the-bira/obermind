@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
 import { Typography, TimeRangeButton } from '@/components/atoms';
-import { MarketListItem } from '@/components/molecules';
+import { MarketListItem, BuyersSellers } from '@/components/molecules';
 
 const marketFilters = [
   'Most Traded',
@@ -117,15 +118,32 @@ export const MarketsGrid: React.FC = () => {
 
           {/* Selected Market Detail */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Gold Banner */}
-            <div className="relative rounded-lg overflow-hidden">
-              <Image
-                src="/gold-banner.png"
-                alt="Gold Trading"
-                width={800}
-                height={300}
-                className="w-full h-auto object-cover"
-              />
+            {/* Gold Banner with BuyersSellers */}
+            <div className="flex gap-4 items-start">
+              <div className="relative rounded-lg overflow-hidden flex-1">
+                <Image
+                  src="/gold-banner.png"
+                  alt="Gold Trading"
+                  width={800}
+                  height={300}
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              <div className="flex flex-col gap-4">
+                <BuyersSellers
+                  buyersPercent="66.93%"
+                  sellersPercent="66.93%"
+                  low="3686.38"
+                  high="3788.96"
+                />
+                <a
+                  href="#"
+                  className="text-red-600 hover:text-red-700 text-sm font-semibold flex items-center gap-1"
+                >
+                  Browse all markets
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
             </div>
 
             {/* Chart */}
@@ -140,13 +158,13 @@ export const MarketsGrid: React.FC = () => {
                 </Typography>
               </div>
               
-              <div className="relative mb-4">
+              <div className="relative mb-4 border border-gray-200 rounded-lg overflow-hidden">
                 <Image
                   src="/our-markets-chart.png"
                   alt="Price Chart"
                   width={600}
                   height={300}
-                  className="w-full h-auto rounded-lg"
+                  className="w-full h-auto"
                 />
                 
                 {/* Time Range Buttons */}
