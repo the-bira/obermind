@@ -69,7 +69,7 @@ export const TradingFeatures: React.FC = () => {
           </Typography>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-6xl mx-auto">
           {/* Logo in center */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
             <div className="relative w-16 h-16">
@@ -90,7 +90,7 @@ export const TradingFeatures: React.FC = () => {
                 key={index}
                 className="
                   bg-transparent
-                  p-6
+                  p-9
                   relative
                   overflow-hidden
                   transition-all duration-300
@@ -104,10 +104,10 @@ export const TradingFeatures: React.FC = () => {
                   // Index 2: Round-the-clock - do superior direito para inferior esquerdo (225deg)
                   // Index 3: Customisable price - do superior esquerdo para inferior direito (315deg)
                   const gradientAngles = [
-                    "135deg", // Charting tools: inferior direito -> superior esquerdo
-                    "45deg", // Get flexible leverage: inferior esquerdo -> superior direito
-                    "225deg", // Round-the-clock: superior direito -> inferior esquerdo
-                    "315deg", // Customisable price: superior esquerdo -> inferior direito
+                    "165deg", // Charting tools: inferior direito -> superior esquerdo
+                    "195deg", // Get flexible leverage: inferior esquerdo -> superior direito
+                    "30deg", // Round-the-clock: superior direito -> inferior esquerdo
+                    "335deg", // Customisable price: superior esquerdo -> inferior direito
                   ];
                   // Gradiente linear que parte do centro (50% stop) e vai na direção especificada
                   e.currentTarget.style.background = `linear-gradient(${gradientAngles[index]}, transparent 0%, transparent 40%, rgba(226, 0, 9, 0.41) 50%, #1F2937 100%)`;
@@ -132,14 +132,14 @@ export const TradingFeatures: React.FC = () => {
                 <Typography
                   as="h3"
                   variant="heading"
-                  className="text-white text-lg font-bold mb-2 relative z-10"
+                  className="text-white text-xl font-bold mb-3 relative z-10"
                 >
                   {feature.title}
                 </Typography>
                 <Typography
                   as="p"
                   variant="body"
-                  className="text-slate-300 text-sm relative z-10"
+                  className="text-slate-300 text-base relative z-10"
                 >
                   {feature.description}
                 </Typography>
