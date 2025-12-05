@@ -54,13 +54,14 @@ export const MarketListItem: React.FC<MarketListItemProps> = ({
       }
     >
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0">
+        <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 overflow-hidden">
           <div className="relative w-full h-full">
             <Image
               src={iconSrc}
               alt={iconAlt}
               fill
               className="object-contain"
+              unoptimized
             />
           </div>
         </div>
