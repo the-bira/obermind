@@ -120,12 +120,12 @@ export const MarketsGrid: React.FC = () => {
           <div className="lg:col-span-2 space-y-6">
             {/* Gold Banner with BuyersSellers */}
             <div className="flex gap-4 items-start">
-              <div className="relative rounded-lg overflow-hidden flex-1">
+              <div className="relative rounded-lg overflow-hidden flex-1 max-w-md">
                 <Image
                   src="/gold-banner.png"
                   alt="Gold Trading"
-                  width={800}
-                  height={300}
+                  width={600}
+                  height={200}
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -162,9 +162,10 @@ export const MarketsGrid: React.FC = () => {
                 <Image
                   src="/our-markets-chart.png"
                   alt="Price Chart"
-                  width={600}
-                  height={300}
+                  width={800}
+                  height={400}
                   className="w-full h-auto"
+                  unoptimized
                 />
                 
                 {/* Time Range Buttons */}
