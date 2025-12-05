@@ -1,6 +1,7 @@
 export * from "./HeroPrimaryButton";
 export * from "./HeroSecondaryButton";
 export * from "./LanguageSelector";
+export * from "./MarketsFeatureButton";
 export * from "./MarketCard";
 export * from "./NavigationItem";
 export * from "./PriceDisplay";
