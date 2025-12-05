@@ -73,12 +73,14 @@ export const MarketsGrid: React.FC = () => {
             variant="body"
             className="text-gray-700 text-lg max-w-2xl mx-auto"
           >
-            Stay informed with the data that matters, on 17,000+ markets. Get the latest news, trader sentiment, spreads, price action and much more.
+            Stay informed with the data that matters, on 17,000+ markets. Get
+            the latest news, trader sentiment, spreads, price action and much
+            more.
           </Typography>
         </div>
 
         {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
           {marketFilters.map((filter) => (
             <button
               key={filter}
@@ -87,8 +89,8 @@ export const MarketsGrid: React.FC = () => {
                 px-6 py-2 rounded-full font-semibold transition-colors duration-200
                 ${
                   activeFilter === filter
-                    ? 'bg-red-600 text-white'
-                    : 'bg-transparent border border-red-600 text-red-600 hover:bg-red-50'
+                    ? "bg-red-600 text-white"
+                    : "bg-transparent border border-red-600 text-red-600 hover:bg-red-50"
                 }
               `}
             >
@@ -98,7 +100,7 @@ export const MarketsGrid: React.FC = () => {
         </div>
 
         {/* Market Display */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3">
           {/* Instrument List */}
           <div className="space-y-4">
             {marketItems.map((item, index) => (
@@ -119,7 +121,7 @@ export const MarketsGrid: React.FC = () => {
           {/* Selected Market Detail */}
           <div className="lg:col-span-2 space-y-6">
             {/* Gold Banner with BuyersSellers */}
-            <div className="flex gap-4 items-start">
+            <div className="flex gap-2 items-start">
               <div className="relative rounded-lg overflow-hidden flex-1 max-w-md">
                 <Image
                   src="/gold-banner.png"
@@ -147,48 +149,38 @@ export const MarketsGrid: React.FC = () => {
             </div>
 
             {/* Chart */}
-            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-              <div className="mb-4">
-                <Typography
-                  as="h3"
-                  variant="heading"
-                  className="text-black text-xl font-bold mb-1"
-                >
-                  XAU/USD
-                </Typography>
-              </div>
-              
-              <div className="relative mb-4 border border-gray-200 rounded-lg overflow-hidden">
-                <Image
-                  src="/our-markets-chart.png"
-                  alt="Price Chart"
-                  width={800}
-                  height={400}
-                  className="w-full h-auto"
-                  unoptimized
-                />
-                
-                {/* Time Range Buttons */}
-                <div className="absolute top-4 right-4 flex flex-col gap-2">
-                  {timeRanges.map((range) => (
-                    <TimeRangeButton
-                      key={range}
-                      label={range}
-                      isSelected={selectedTimeRange === range}
-                      onClick={() => setSelectedTimeRange(range)}
-                    />
-                  ))}
+            <div className="bg-white rounded-lg p-2">
+              <div className="relative mb-4 rounded-lg overflow-hidden">
+                <div className="flex gap-4">
+                  <Image
+                    src="/our-markets-chart.png"
+                    alt="Price Chart"
+                    width={800}
+                    height={400}
+                    className="w-full h-auto"
+                    unoptimized
+                  />
+
+                  <div className=" top-4 right-4 flex flex-col gap-2">
+                    {timeRanges.map((range) => (
+                      <TimeRangeButton
+                        key={range}
+                        label={range}
+                        isSelected={selectedTimeRange === range}
+                        onClick={() => setSelectedTimeRange(range)}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
-              
-              <Typography
-                as="p"
-                variant="body"
-                className="text-gray-500 text-xs text-center"
-              >
-                Past performance is not a reliable indicator of future results
-              </Typography>
             </div>
+            <Typography
+              as="p"
+              variant="body"
+              className="text-gray-500 text-xs text-center"
+            >
+              Past performance is not a reliable indicator of future results
+            </Typography>
           </div>
         </div>
       </div>

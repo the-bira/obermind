@@ -28,13 +28,13 @@ export const TimeRangeButton: React.FC<TimeRangeButtonProps> = ({
       style={
         isSelected
           ? {
-              background: '#ED1D25',
-              color: '#FFFFFF',
+              background: "#ED1D25",
+              color: "#FFFFFF",
             }
           : {
-              background: '#FFFFFF',
-              color: '#000000',
-              border: '1px solid #D7D7D7',
+              background: "#000000",
+              color: "#FFFFFF",
+              border: "1px solid #D7D7D7",
             }
       }
     >

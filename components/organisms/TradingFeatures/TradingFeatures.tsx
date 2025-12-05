@@ -95,6 +95,10 @@ export const TradingFeatures: React.FC = () => {
                   overflow-hidden
                   transition-all duration-300
                   group
+                  flex
+                  flex-col
+                  items-center
+                  justify-center
                   hover:border-red-600
                 "
                 onMouseEnter={(e) => {
@@ -130,31 +134,22 @@ export const TradingFeatures: React.FC = () => {
                   </div>
                 )}
                 <Typography
-                  as="h3"
+                  as="h5"
                   variant="heading"
-                  className="text-white text-xl font-bold mb-3 relative z-10"
+                  className="text-white font-bold mb-3 relative z-10"
                 >
                   {feature.title}
                 </Typography>
                 <Typography
                   as="p"
                   variant="body"
-                  className="text-slate-300 text-base relative z-10"
+                  className="text-slate-300 text-base relative z-10 w-[50%] text-center"
                 >
                   {feature.description}
                 </Typography>
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Play button in center */}
-        <div className="flex justify-center mt-12 relative z-10">
-          <button className="w-16 h-16 rounded-full bg-red-600 hover:bg-red-700 flex items-center justify-center transition-colors">
-            <svg viewBox="0 0 24 24" fill="white" className="w-8 h-8 ml-1">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </button>
         </div>
       </div>
     </section>

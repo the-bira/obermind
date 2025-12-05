@@ -1,7 +1,7 @@
 import React from 'react';
-import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
-import { Typography } from '@/components/atoms';
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+import { Typography } from "@/components/atoms";
 
 export interface MarketCardProps {
   title: string;
@@ -16,7 +16,7 @@ export const MarketCard: React.FC<MarketCardProps> = ({
   description,
   iconSrc,
   iconAlt,
-  className = '',
+  className = "",
 }) => {
   return (
     <div
@@ -32,7 +32,7 @@ export const MarketCard: React.FC<MarketCardProps> = ({
         ${className}
       `}
       style={{
-        background: 'linear-gradient(180deg, #FFE6E7 0%, #ED1D25 62.02%)',
+        background: "linear-gradient(180deg, #FFE6E7 0%, #ED1D25 62.02%)",
       }}
     >
       <div
@@ -74,7 +74,7 @@ export const MarketCard: React.FC<MarketCardProps> = ({
         </Typography>
 
         {/* Arrow Button */}
-        <div className="flex justify-end mt-auto pt-2">
+        <div className="flex justify-start mt-auto pt-2">
           <button
             className="
               w-10 h-10
