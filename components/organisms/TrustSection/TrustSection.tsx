@@ -31,15 +31,15 @@ export const TrustSection: React.FC = () => {
               <div className="flex flex-wrap gap-4">
                 <Button
                   variant="primary"
-                  size="lg"
-                  className="rounded-full transition-transform duration-200 hover:scale-105"
+                  size="md"
+                  className="transition-transform duration-200 hover:scale-105"
                 >
                   Start Trading
                 </Button>
                 <Button
                   variant="secondary"
-                  size="lg"
-                  className="rounded-full transition-transform duration-200 hover:scale-105"
+                  size="md"
+                  className="transition-transform duration-200 hover:scale-105"
                 >
                   Try Demo Account
                 </Button>
