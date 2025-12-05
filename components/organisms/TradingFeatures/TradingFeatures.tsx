@@ -33,7 +33,7 @@ const features = [
 
 export const TradingFeatures: React.FC = () => {
   return (
-    <section className="min-h-screen w-full bg-gradient-to-b from-gray-900 to-black text-white py-20 relative">
+    <section className="min-h-screen w-full bg-linear-to-b from-gray-900 to-black text-white py-20 relative">
       {/* Diagonal Fade Center Grid Background */}
       <div
         className="absolute inset-0 z-0"
@@ -72,14 +72,18 @@ export const TradingFeatures: React.FC = () => {
         <div className="relative max-w-6xl mx-auto">
           {/* Logo in center */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-            <div className="relative w-16 h-16">
-              <Image
-                src="/logo-radar.png"
-                alt="Radar Logo"
-                fill
-                className="object-contain"
-                unoptimized
-              />
+            <div className="bg-black w-24 h-24 flex border border-opacity-10 border-neutral-700 items-center justify-center rounded-full">
+              <div className=" bg-black w-18 h-18 border-opacity-10 border border-neutral-700 flex items-center justify-center rounded-full">
+                <div className="relative w-12 h-12">
+                  <Image
+                    src="/logo-radar.png"
+                    alt="Radar Logo"
+                    fill
+                    className="object-contain"
+                    unoptimized
+                  />
+                </div>
+              </div>
             </div>
           </div>
 
