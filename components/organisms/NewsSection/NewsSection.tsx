@@ -46,8 +46,8 @@ export const NewsSection: React.FC = () => {
               shrink-0
             "
             style={{
-              width: '276px',
-              height: '455px',
+              width: "276px",
+              height: "455px",
               boxShadow: `
                 0px 2.77px 2.21px 0px rgba(0, 0, 0, 0.02),
                 0px 6.65px 5.32px 0px rgba(0, 0, 0, 0.03),
@@ -70,13 +70,13 @@ export const NewsSection: React.FC = () => {
             <div className="p-6">
               <p
                 style={{
-                  fontFamily: 'Urbanist, sans-serif',
+                  fontFamily: "Urbanist, sans-serif",
                   fontWeight: 600,
-                  fontSize: '14px',
-                  lineHeight: '24px',
-                  letterSpacing: '0.2px',
-                  color: '#737373',
-                  marginBottom: '12px',
+                  fontSize: "14px",
+                  lineHeight: "24px",
+                  letterSpacing: "0.2px",
+                  color: "#737373",
+                  marginBottom: "12px",
                 }}
               >
                 03 October 2025
@@ -85,13 +85,13 @@ export const NewsSection: React.FC = () => {
                 as="h3"
                 variant="heading"
                 style={{
-                  fontFamily: 'Gilroy-Bold, sans-serif',
+                  fontFamily: "Gilroy-Bold, sans-serif",
                   fontWeight: 400,
-                  fontSize: '16px',
-                  lineHeight: '100%',
-                  letterSpacing: '0px',
-                  color: '#252B42',
-                  marginBottom: '12px',
+                  fontSize: "16px",
+                  lineHeight: "100%",
+                  letterSpacing: "0px",
+                  color: "#252B42",
+                  marginBottom: "12px",
                 }}
               >
                 Gulf markets end mixed on Ukraine ceasefire hopes, tariff fears
@@ -144,15 +144,16 @@ export const NewsSection: React.FC = () => {
         </div>
 
         {/* Bottom Banner */}
-        <div className="w-full h-[205px] rounded-[20px] overflow-hidden">
-          <Image
-            src="/news-section-banner.png"
-            alt="Premier Markets - Market Cap Weighted PR (BKP)"
-            width={1200}
-            height={205}
-            className="w-full h-full object-cover"
-            unoptimized
-          />
+        <div className="w-full rounded-[20px] overflow-hidden mt-6">
+          <div className="relative w-full h-[455px]">
+            <Image
+              src="/news-section-banner.png"
+              alt="Premier Markets - Market Cap Weighted PR (BKP)"
+              fill
+              className="object-cover rounded-[20px]"
+              unoptimized
+            />
+          </div>
         </div>
       </div>
     </section>
