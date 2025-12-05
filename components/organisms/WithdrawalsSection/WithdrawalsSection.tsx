@@ -54,7 +54,7 @@ export const WithdrawalsSection: React.FC = () => {
             <div className="space-y-6">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex gap-4">
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-red-600">
                       {benefit.icon}
                     </div>
@@ -82,7 +82,7 @@ export const WithdrawalsSection: React.FC = () => {
           <div className="relative flex justify-center">
             {/* Phone mockup placeholder */}
             <div className="relative w-64 h-[500px] bg-black rounded-[2.5rem] p-4 shadow-2xl">
-              <div className="w-full h-full bg-gray-900 rounded-[2rem] flex flex-col p-6">
+              <div className="w-full h-full bg-gray-900 rounded-4xl flex flex-col p-6">
                 <div className="bg-gray-800 rounded-lg h-32 mb-4"></div>
                 <div className="space-y-3 flex-1">
                   <div className="bg-gray-800 rounded-lg h-12"></div>
@@ -97,7 +97,7 @@ export const WithdrawalsSection: React.FC = () => {
         </div>
       </div>
       {/* Decorative gradient wave */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-50 to-transparent opacity-50 -z-10"></div>
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-linear-to-l from-red-50 to-transparent opacity-50 -z-10"></div>
     </section>
   );
 };
