@@ -3,6 +3,7 @@ export * from "./HeroSecondaryButton";
 export * from "./LanguageSelector";
 export * from "./MarketsFeatureButton";
 export * from "./MarketCard";
+export * from "./MarketListItem";
 export * from "./NavigationItem";
 export * from "./PriceDisplay";
 export * from "./StepCard";

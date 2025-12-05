@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Button, Typography } from '@/components/atoms';
 
 export const TrustSection: React.FC = () => {
@@ -21,37 +22,31 @@ export const TrustSection: React.FC = () => {
               variant="body"
               className="text-gray-700 text-lg leading-relaxed"
             >
-              We pride ourselves on transparency, reliability, and exceptional
-              customer service. Our commitment to providing a secure trading
-              environment has earned the trust of thousands of traders worldwide.
+              Experience advanced trading tools, transparent and competitive pricing, lightning-fast execution, and dedicated support trusted by traders worldwide.
             </Typography>
             <div className="flex flex-wrap gap-4">
-              <Button variant="primary" size="lg">
-                Join Today
+              <Button variant="primary" size="lg" className="rounded-full">
+                Start Trading
               </Button>
-              <Button variant="secondary" size="lg">
+              <Button variant="secondary" size="lg" className="rounded-full">
                 Try Demo Account
               </Button>
             </div>
           </div>
           <div className="relative">
-            {/* Banner with image placeholder */}
-            <div className="bg-gradient-to-br from-red-600 to-red-800 rounded-lg p-8 md:p-12 text-white relative overflow-hidden">
-              <div className="relative z-10">
-                <Typography
-                  as="h3"
-                  variant="heading"
-                  className="text-white text-2xl md:text-3xl font-bold mb-4"
-                >
-                  Everything you need to trade the markets
-                </Typography>
-                <Button variant="white" size="md">
-                  Explore Markets
-                </Button>
+            <div className="relative rounded-lg overflow-hidden">
+              <Image
+                src="/trust-banner.png"
+                alt="Everything you need to trade the markets"
+                width={600}
+                height={400}
+                className="w-full h-auto object-cover"
+              />
+              <div className="absolute bottom-8 right-8">
+                <button className="px-6 py-3 bg-white border border-red-600 text-red-600 rounded-full font-semibold hover:bg-red-50 transition-colors">
+                  Explore Accounts
+                </button>
               </div>
-              {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full -mr-32 -mt-32"></div>
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-10 rounded-full -ml-24 -mb-24"></div>
             </div>
           </div>
         </div>

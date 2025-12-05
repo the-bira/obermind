@@ -1,31 +1,60 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Card, Typography } from '@/components/atoms';
-import { PriceDisplay } from '@/components/molecules';
+import Image from 'next/image';
+import { Typography, TimeRangeButton } from '@/components/atoms';
+import { MarketListItem } from '@/components/molecules';
 
 const marketFilters = [
-  'All Markets',
+  'Most Traded',
   'Commodities',
   'Indices',
   'Cryptocurrencies',
-  'Forex',
+  'Shares',
   'ETFs',
 ];
 
-const instruments = [
-  { name: 'Gold', price: '3773.30', change: '+0.04%', symbol: 'XAUUSD' },
-  { name: 'Bitcoin', price: '29,000.00', change: '+0.23%', symbol: 'BTCUSD' },
+const timeRanges = ['1d', '1h', '4h', '1m', '5m', '15m', '30m', '1w'];
+
+const marketItems = [
+  {
+    name: 'Bitcoin',
+    symbol: 'BTC',
+    price: 'P 524,0',
+    change: '+3,25%',
+    iconSrc: '/our-markets-btc-icon.png',
+    iconAlt: 'Bitcoin',
+  },
+  {
+    name: 'Bitcoin',
+    symbol: 'BTC',
+    price: 'P 524,0',
+    change: '+3,25%',
+    iconSrc: '/our-markets-btc-icon.png',
+    iconAlt: 'Bitcoin',
+  },
+  {
+    name: 'Bitcoin',
+    symbol: 'BTC',
+    price: 'P 524,0',
+    change: '+3,25%',
+    iconSrc: '/our-markets-btc-icon.png',
+    iconAlt: 'Bitcoin',
+  },
   {
     name: 'Ethereum',
-    price: '1,800.00',
-    change: '+0.42%',
-    symbol: 'ETHUSD',
+    symbol: 'ETH',
+    price: 'P 524,0',
+    change: '+3,25%',
+    iconSrc: '/our-markets-btc-icon.png',
+    iconAlt: 'Ethereum',
   },
 ];
 
 export const MarketsGrid: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState('All Markets');
+  const [activeFilter, setActiveFilter] = useState('Most Traded');
+  const [selectedMarket, setSelectedMarket] = useState(0);
+  const [selectedTimeRange, setSelectedTimeRange] = useState('1h');
 
   return (
     <section className="bg-white py-20">
@@ -43,8 +72,7 @@ export const MarketsGrid: React.FC = () => {
             variant="body"
             className="text-gray-700 text-lg max-w-2xl mx-auto"
           >
-            Explore our wide range of trading instruments across multiple asset
-            classes.
+            Stay informed with the data that matters, on 17,000+ markets. Get the latest news, trader sentiment, spreads, price action and much more.
           </Typography>
         </div>
 
@@ -55,11 +83,11 @@ export const MarketsGrid: React.FC = () => {
               key={filter}
               onClick={() => setActiveFilter(filter)}
               className={`
-                px-6 py-2 rounded-lg font-semibold transition-colors duration-200
+                px-6 py-2 rounded-full font-semibold transition-colors duration-200
                 ${
                   activeFilter === filter
                     ? 'bg-red-600 text-white'
-                    : 'bg-transparent border-2 border-red-600 text-red-600 hover:bg-red-50'
+                    : 'bg-transparent border border-red-600 text-red-600 hover:bg-red-50'
                 }
               `}
             >
@@ -72,89 +100,72 @@ export const MarketsGrid: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Instrument List */}
           <div className="space-y-4">
-            {instruments.map((instrument) => (
-              <Card
-                key={instrument.symbol}
-                variant="outlined"
-                className="cursor-pointer hover:shadow-lg transition-shadow"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
-                      <span className="text-red-600 font-bold">
-                        {instrument.name[0]}
-                      </span>
-                    </div>
-                    <div>
-                      <Typography
-                        as="p"
-                        variant="body"
-                        className="text-gray-900 font-semibold"
-                      >
-                        {instrument.name}
-                      </Typography>
-                    </div>
-                  </div>
-                  <PriceDisplay
-                    price={instrument.price}
-                    changePercent={instrument.change}
-                  />
-                </div>
-              </Card>
+            {marketItems.map((item, index) => (
+              <MarketListItem
+                key={`${item.symbol}-${index}`}
+                name={item.name}
+                symbol={item.symbol}
+                price={item.price}
+                change={item.change}
+                iconSrc={item.iconSrc}
+                iconAlt={item.iconAlt}
+                isSelected={selectedMarket === index}
+                onClick={() => setSelectedMarket(index)}
+              />
             ))}
           </div>
 
           {/* Selected Market Detail */}
           <div className="lg:col-span-2">
-            <Card variant="elevated" className="p-6">
-              <Typography
-                as="h3"
-                variant="heading"
-                className="text-black text-2xl font-bold mb-6"
-              >
-                Gold
-              </Typography>
-              <div className="grid grid-cols-2 gap-6 mb-6">
-                <div>
-                  <Typography
-                    as="p"
-                    variant="body"
-                    className="text-gray-600 text-sm mb-2"
-                  >
-                    Bid
-                  </Typography>
-                  <Typography
-                    as="p"
-                    variant="body"
-                    className="text-black text-xl font-bold"
-                  >
-                    3773.30
-                  </Typography>
-                </div>
-                <div>
-                  <Typography
-                    as="p"
-                    variant="body"
-                    className="text-gray-600 text-sm mb-2"
-                  >
-                    Ask
-                  </Typography>
-                  <Typography
-                    as="p"
-                    variant="body"
-                    className="text-black text-xl font-bold"
-                  >
-                    3773.40
-                  </Typography>
-                </div>
-              </div>
-              {/* Chart placeholder */}
-              <div className="bg-gray-100 rounded-lg h-64 flex items-center justify-center">
-                <Typography as="p" variant="body" className="text-gray-500">
-                  Price Chart Placeholder
+            <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+              <div className="mb-6">
+                <Typography
+                  as="h3"
+                  variant="heading"
+                  className="text-black text-2xl font-bold mb-2"
+                >
+                  {marketItems[selectedMarket]?.name}
+                </Typography>
+                <Typography
+                  as="p"
+                  variant="body"
+                  className="text-gray-600 text-sm"
+                >
+                  {marketItems[selectedMarket]?.symbol}
                 </Typography>
               </div>
-            </Card>
+              
+              {/* Chart */}
+              <div className="relative mb-4">
+                <Image
+                  src="/our-markets-chart.png"
+                  alt="Price Chart"
+                  width={600}
+                  height={300}
+                  className="w-full h-auto rounded-lg"
+                />
+                
+                {/* Time Range Buttons */}
+                <div className="absolute top-4 right-4 flex flex-col gap-2">
+                  {timeRanges.map((range) => (
+                    <TimeRangeButton
+                      key={range}
+                      label={range}
+                      isSelected={selectedTimeRange === range}
+                      onClick={() => setSelectedTimeRange(range)}
+                    />
+                  ))}
+                </div>
+              </div>
+              
+              <Typography
+                as="p"
+                variant="body"
+                className="text-gray-500 text-xs text-center"
+              >
+                Past performance is not a reliable indicator of future results
+              </Typography>
+            </div>
           </div>
         </div>
       </div>
